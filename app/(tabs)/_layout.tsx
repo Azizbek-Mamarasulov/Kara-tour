@@ -1,43 +1,47 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { MaterialIcons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+    <Tabs backBehavior="order">
       <Tabs.Screen
-        name="index"
+        name="(main)/index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Asosiy",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="dashboard" color={color} size={size} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="(hotels)"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Mehmonxonalar",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="hotel" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(places)"
+        options={{
+          headerShown: false,
+          title: "Joylar",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="place" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(pricing)/index"
+        options={{
+          title: "Turlar",
+          headerTitle: "Tur paketlarning narxlari",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="flight" color={color} size={size} />
+          ),
         }}
       />
     </Tabs>
