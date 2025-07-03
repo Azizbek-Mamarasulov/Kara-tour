@@ -1,33 +1,31 @@
-import { SplashScreen, Stack } from "expo-router";
-import { useCallback } from "react";
+import { Stack } from "expo-router";
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 
+import CustomSplash from "@/components/CustomSplash";
 import {
   Roboto_400Regular,
   Roboto_700Bold,
   useFonts,
 } from "@expo-google-fonts/roboto";
 
-SplashScreen.preventAutoHideAsync();
-
 export default function RootLayout() {
+  const [isLoading, setIsLoading] = useState(true);
   const [fontsLoaded] = useFonts({
     Roboto_400Regular,
     Roboto_700Bold,
   });
 
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 3000);
+  }, []);
 
-  if (!fontsLoaded) {
-    return null;
+  if (!fontsLoaded || isLoading) {
+    return <CustomSplash />;
   }
 
   return (
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+    <View style={{ flex: 1 }}>
       <Stack>
         {/* Main tabs */}
         <Stack.Screen

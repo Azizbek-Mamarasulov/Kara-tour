@@ -7,7 +7,7 @@ import {
   View,
   useWindowDimensions,
 } from "react-native";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
 interface LocationPreviewProps {
   latitude: number;
@@ -47,6 +47,7 @@ export default function LocationPreview({
     <TouchableOpacity onPress={openMaps} activeOpacity={0.7}>
       <View style={[styles.container, { width, height }]}>
         <MapView
+          provider={PROVIDER_GOOGLE}
           style={styles.map}
           region={{
             latitude,

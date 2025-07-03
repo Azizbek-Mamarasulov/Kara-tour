@@ -156,7 +156,7 @@ export default function MainScreen() {
           showsHorizontalScrollIndicator={false}
         >
           {pricing.slice(0, 3).map((price, index) => (
-            <View key={index} style={{ padding: 10 }}>
+            <View key={index} style={{ padding: 10, minWidth: 350 }}>
               <PriceItem
                 key={price.price}
                 price={price.price}
