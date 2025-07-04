@@ -3,9 +3,9 @@ import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
   return (
-    <Tabs initialRouteName="(main)/index">
+    <Tabs initialRouteName="index">
       <Tabs.Screen
-        name="(main)/index"
+        name="index"
         options={{
           title: "Asosiy",
           headerShown: false,
@@ -35,7 +35,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="(pricing)/index"
+        name="pricing"
         options={{
           title: "Turlar",
           headerTitle: "Tur paketlarning narxlari",

@@ -26,7 +26,7 @@ export default function RootLayout() {
 
   return (
     <View style={{ flex: 1 }}>
-      <Stack>
+      <Stack initialRouteName="(tabs)">
         {/* Main tabs */}
         <Stack.Screen
           name="(tabs)"
@@ -36,7 +36,7 @@ export default function RootLayout() {
         />
         {/* Modal screen */}
         <Stack.Screen
-          name="(modal)/(hotels)/details"
+          name="(modals)/hotel"
           options={{
             presentation: "modal",
             headerShown: true,
@@ -44,7 +44,7 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen
-          name="(modal)/(places)/details"
+          name="(modals)/place"
           options={{
             presentation: "modal",
             headerShown: true,

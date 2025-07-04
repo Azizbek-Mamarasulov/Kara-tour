@@ -16,6 +16,7 @@ export default function MainScreen() {
 
   return (
     <SafeAreaView edges={["top"]}>
+      {/* Places */}
       <ScrollView contentContainerStyle={{ paddingVertical: 10 }}>
         <View style={{ paddingHorizontal: 12, paddingVertical: 7 }}>
           <AppText style={{ fontSize: 24, fontWeight: "bold" }}>Joylar</AppText>
@@ -26,7 +27,7 @@ export default function MainScreen() {
               key={index}
               onPress={() =>
                 router.push({
-                  pathname: "/(modals)/(places)/details",
+                  pathname: "/(modals)/place",
                   params: { id: place.id, title: place.title },
                 })
               }
@@ -39,7 +40,7 @@ export default function MainScreen() {
                   overflow: "hidden",
                   backgroundColor: "white",
                   elevation: 2,
-                  height: 300, // fixed width for horizontal cards
+                  height: 300,
                   maxWidth: 250,
                   flex: 1,
                 }}
@@ -62,7 +63,6 @@ export default function MainScreen() {
             </TouchableNativeFeedback>
           ))}
 
-          {/* See More button with vertical big height but thin width */}
           <TouchableNativeFeedback
             onPress={() => router.push("/(tabs)/(places)")}
           >
@@ -94,7 +94,7 @@ export default function MainScreen() {
               key={index}
               onPress={() => {
                 router.push({
-                  pathname: "/(modals)/(hotels)/details",
+                  pathname: "/(modals)/hotel",
                   params: { id: hotel.id },
                 });
               }}
@@ -125,7 +125,6 @@ export default function MainScreen() {
             </TouchableNativeFeedback>
           ))}
 
-          {/* See More button with vertical big height but thin width */}
           <TouchableNativeFeedback
             onPress={() => router.push("/(tabs)/(hotels)")}
           >
@@ -145,6 +144,7 @@ export default function MainScreen() {
           </TouchableNativeFeedback>
         </ScrollView>
 
+        {/* Tour */}
         <View style={{ paddingHorizontal: 12, paddingVertical: 7 }}>
           <AppText style={{ fontSize: 24, fontWeight: "bold" }}>
             Tur Paketlar
@@ -165,9 +165,8 @@ export default function MainScreen() {
             </View>
           ))}
 
-          {/* See More button with vertical big height but thin width */}
           <TouchableNativeFeedback
-            onPress={() => router.push("/(tabs)/(pricing)")}
+            onPress={() => router.push("/(tabs)/pricing")}
           >
             <View
               style={{

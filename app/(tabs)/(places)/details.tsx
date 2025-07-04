@@ -27,7 +27,7 @@ export default function DetailsScreen() {
 
   return (
     <ScrollView contentContainerStyle={{ paddingTop: 10, paddingBottom: 10 }}>
-      {place?.content.map((item, key) => {
+      {place.content.map((item, key) => {
         return (
           <View key={key} style={{ margin: 5 }}>
             <View
